@@ -1,26 +1,34 @@
 package incidencias;
 
 public class incidencia {
-    private int codigo;
+    private int incidencia,puesto;
 
-    private String error;
-
-
+    private String error,Estado;
 
     public incidencia() {
     }
 
-    public incidencia(int codigo, String error) {
-        this.codigo = codigo;
+    public incidencia(int incidencia, int puesto, String error) {
+        this.incidencia = incidencia;
+        this.puesto = puesto;
         this.error = error;
+        setEstado("pendiente");
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getIncidencia() {
+        return incidencia;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setIncidencia(int incidencia) {
+        this.incidencia = incidencia;
+    }
+
+    public int getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(int puesto) {
+        this.puesto = puesto;
     }
 
     public String getError() {
@@ -31,8 +39,27 @@ public class incidencia {
         this.error = error;
     }
 
-    private void resuelve(){
+    public String getEstado() {
+        return Estado;
+    }
 
+    public void setEstado(String estado) {
+        Estado = estado;
+    }
 
+    public String resuelve(){
+        setEstado("Resuelta");
+        setError("Resuelto con Exito");
+        return toString();
+    }
+
+    @Override
+    public String toString() {
+        return "incidencia{" +
+                "incidencia=" + incidencia +
+                ", puesto=" + puesto +
+                ", error='" + error + '\'' +
+                ", Estado='" + Estado + '\'' +
+                '}';
     }
 }
